@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stil Çayməkanı - Əsl Rahatlığın Məkanı</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Global Variables & Brand Colors */
+    :root {
+      --primary-orange: #FF6B00;
+      --primary-green: #2E7D32;
+      --accent-light-green: #4CAF50;
+      --bg-light: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --text-main: #1F2937;
+      --text-muted: #6B7280;
+      --border-color: #E5E7EB;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      padding-bottom: 90px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Header & Branding Section */
+    .header {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 100%);
+      padding: 20px 16px 15px 16px;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Sol üst logo sahəsi */
+    .logo-placeholder {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #FFF;
+      border: 2px solid var(--primary-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-info h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .brand-info p {
+      font-size: 0.75rem;
+      color: var(--primary-green);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .action-btn.whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+    }
+
+    /* Banner / Kampaniya Bloku */
+    .promo-banner {
+      margin: 16px;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--primary-orange), #FF8C38);
+      border-radius: var(--radius);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(255, 107, 0, 0.25);
+    }
+
+    .promo-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .promo-text p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .promo-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(5px);
+    }
+
+    /* Search & Filter Bar */
+    .search-box {
+      margin: 0 16px 12px 16px;
+      position: relative;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-orange);
+    }
+
+    /* Horizontal Scroll Categories */
+    .categories-wrapper {
+      padding: 0 16px 12px 16px;
+      overflow-x: auto;
+      display: flex;
+      gap: 8px;
+      scrollbar-width: none;
+    }
+
+    .categories-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-chip {
+      white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-chip.active {
+      background: var(--primary-green);
+      color: #FFFFFF;
+      border-color: var(--primary-green);
+      box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+    }
+
+    /* Menu Items Container */
+    .menu-container {
+      padding: 8px 16px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 16px 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      background: var(--primary-orange);
+      border-radius: 2px;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .menu-card:active {
+      transform: scale(0.99);
+    }
+
+    .item-details {
+      flex: 1;
+      padding-right: 12px;
+    }
+
+    .item-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .item-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .price-tag {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .current-price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary-orange);
+    }
+
+    .old-price {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-right: 4px;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 14px 0;
+      z-index: 1000;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: var(--primary-orange);
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+    }
+
+    /* Modal / Popup for Info */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: #FFF;
+      border-radius: var(--radius);
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .close-btn {
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .info-list i {
+      color: var(--primary-green);
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="top-bar">
+      <div class="brand-container">
+        <!-- Logo Sahəsi (Sol üstdə kiçik şəkil) -->
+        <div class="logo-placeholder">
+          <!-- Logo şəkil faylınızı buraya əlavə edə bilərsiniz (Məsələn: logo.png) -->
+          <img src="logo.png" alt="Stil Logo" onerror="this.src='https://via.placeholder.com/100/FF6B00/FFFFFF?text=STIL'">
+        </div>
+        <div class="brand-info">
+          <h1>Stil Çayməkanı</h1>
+          <p><i class="fa-solid fa-leaf"></i> Halallığın və Rahatlığın Məkanı</p>
+        </div>
+      </div>
+      <div class="quick-actions">
+        <a href="tel:+994777607007" class="action-btn" title="Zəng et">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/994777607007" class="action-btn whatsapp" target="_blank" title="WhatsApp Sifariş / Rezerv">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Special Offer Banner -->
+  <div class="promo-banner">
+    <div class="promo-text">
+      <h3>🔥 Xüsusi Təklif</h3>
+      <p>Gecə Qəlyan Kampaniyası davam edir!</p>
+    </div>
+    <div class="promo-badge">
+      Endirimli
+    </div>
+  </div>
+
+  <!-- Axtarış Zolu -->
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="searchInput" class="search-input" placeholder="Menyuda axtarış edin..." onkeyup="filterMenu()">
+  </div>
+
+  <!-- Kateqoriyalar Slider -->
+  <div class="categories-wrapper" id="categoriesNav">
+    <!-- JS ilə dinamik doldurulacaq -->
+  </div>
+
+  <!-- Menyu Siyahısı -->
+  <main class="menu-container" id="menuContainer">
+    <!-- JS ilə dinamik doldurulacaq -->
+  </main>
+
+  <!-- Alt Naviqasiya Menyu -->
+  <nav class="bottom-nav">
+    <div class="nav-item active" onclick="scrollToTop()">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Menyu</span>
+    </div>
+    <div class="nav-item" onclick="openModal('langModal')">
+      <i class="fa-solid fa-language"></i>
+      <span>Dil (AZ)</span>
+    </div>
+    <a href="https://wa.me/994777607007?text=Salam,%20masa%20rezerv%20etmək%20istəyirəm." class="nav-item" target="_blank">
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Rezerv</span>
+    </a>
+    <div class="nav-item" onclick="openModal('infoModal')">
+      <i class="fa-solid fa-clock"></i>
+      <span>Məlumat</span>
+    </div>
+  </nav>
+
+  <!-- Məlumat Modal Popup -->
+  <div class="modal-overlay" id="infoModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Məkan Məlumatları</h3>
+        <i class="fa-solid fa-xmark close-btn" onclick="closeModal('infoModal')"></i>
+      </div>
+      <ul class="info-list">
+        <li><i class="fa-solid fa-location-dot"></i> Unvan: Stil Çayməkanı</li>
+        <li><i class="fa-solid fa-clock"></i> İş saatları: 24/7 Açıqdır</li>
+        <li><i class="fa-solid fa-phone"></i> Əlaqə: +994 77 760 70 07</li>
+        <li><i class="fa-solid fa-shield-halal"></i> Halallıq konsepti üstünlük təşkil edir</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dil Seçimi Modal -->
+  <div class="modal-overlay" id="langModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Dil Seçimi</h3>
+        <i class="fa-solid fa-xmark close-btn" onclick="closeModal('langModal')"></i>
+      </div>
+      <ul class="info-list">
+        <li><b>🇦🇿 Azərbaycan dili</b> (Aktiv)</li>
+        <li style="color: #9CA3AF;">🇬🇧 English (Tezliklə)</li>
+        <li style="color: #9CA3AF;">🇷🇺 Русский (Tezliklə)</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Menyu Məlumat Bazası (Ekran görüntülərindən çıxarılmış tam dəqiq siyahı)
+    const menuData = [
+      {
+        category: "Gecə qəlyan kampaniyası",
+        items: [
+          { name: "Ananasda Qəlyan (Kampaniya)", price: "22.00 ₼", oldPrice: "30.00 ₼" },
+          { name: "Qreypfrutda Qəlyan (Kampaniya)", price: "18.00 ₼", oldPrice: "22.00 ₼" },
+          { name: "Qarpızda Qəlyan (Kampaniya)", price: "15.00 ₼", oldPrice: "25.00 ₼" },
+          { name: "Çaşkada Qəlyan (Kampaniya)", price: "10.00 ₼", oldPrice: "12.00 ₼" }
+        ]
+      },
+      {
+        category: "FASD FOOD",
+        items: [
+          { name: "Sosiska & Fri", price: "5.00 ₼" },
+          { name: "Nugget & Fri", price: "5.00 ₼" },
+          { name: "Kartof fri", price: "3.00 ₼" },
+          { name: "Kənd sayağı fri", price: "4.00 ₼" },
+          { name: "Nugget (5 ədəd)", price: "5.00 ₼" }
+        ]
+      },
+      {
+        category: "Qəlyanlar",
+        items: [
+          { name: "Ananasda Qəlyan", price: "22.00 ₼", oldPrice: "30.00 ₼" },
+          { name: "Çaşkada Qəlyan (Premium)", price: "20.00 ₼" },
+          { name: "Çaşkada Qəlyan (VIP)", price: "15.00 ₼" },
+          { name: "Qreypfrutda Qəlyan", price: "18.00 ₼", oldPrice: "22.00 ₼" },
+          { name: "Qarpızda Qəlyan", price: "15.00 ₼", oldPrice: "25.00 ₼" },
+          { name: "Çaşkada Qəlyan (Şərbətli)", price: "15.00 ₼" },
+          { name: "Çaşkada Qəlyan", price: "10.00 ₼", oldPrice: "12.00 ₼" },
+          { name: "İstəyə uyğun xüsusi tütünlər", price: "15.00 ₼ - 150.00 ₼" }
+        ]
+      },
+      {
+        category: "Çay və məzələr",
+        items: [
+          { name: "Çay (Sadə)", price: "3.00 ₼" },
+          { name: "Çay samovar çaynikdə", price: "3.50 ₼" },
+          { name: "Çay samovarda", price: "12.00 ₼" },
+          { name: "Cappuccino", price: "3.00 ₼" },
+          { name: "Coffee", price: "2.00 ₼" },
+          { name: "Alpengold", desc: "Şokolad", price: "5.00 ₼" },
+          { name: "Snikers", desc: "Şokolad", price: "4.00 ₼" }
+        ]
+      },
+      {
+        category: "Mürəbbələr",
+        items: [
+          { name: "Mürəbbə çeşidləri", price: "5.00 ₼" }
+        ]
+      },
+      {
+        category: "Özəl mürəbbələr",
+        items: [
+          { name: "Stil Oreo", desc: "Özəl Mürəbbə", price: "7.00 ₼" },
+          { name: "Stil Addicto", desc: "Özəl Mürəbbə", price: "7.00 ₼" },
+          { name: "Stil Tutku", desc: "Özəl Mürəbbə", price: "7.00 ₼" },
+          { name: "Stil Kruvasan", desc: "Özəl Mürəbbə", price: "7.00 ₼" }
+        ]
+      },
+      {
+        category: "Məzələr",
+        items: [
+          { name: "Saçaqlı pendir (sadə)", price: "2.50 ₼" },
+          { name: "Saçaqlı pendir (qızartma)", price: "3.50 ₼" },
+          { name: "Noxud", price: "1.50 ₼" },
+          { name: "Boğaz (sadə)", price: "2.00 ₼" },
+          { name: "Boğaz (qızartma)", price: "3.50 ₼" },
+          { name: "Bildirçin", price: "4.00 ₼" },
+          { name: "Pətənə (qızartma)", price: "3.50 ₼" },
+          { name: "Düşbərə (qızartma)", price: "3.50 ₼" }
+        ]
+      },
+      {
+        category: "Yeməklər",
+        items: [
+          { name: "Çörək (əlavə)", price: "1.00 ₼" },
+          { name: "Sosiska & Fri", price: "5.00 ₼" },
+          { name: "Nugget & Fri", price: "5.00 ₼" },
+          { name: "Kartof fri", price: "3.00 ₼" },
+          { name: "Kənd sayağı fri", price: "4.00 ₼" },
+          { name: "Sosiska (3 ədəd)", price: "4.00 ₼" },
+          { name: "Nugget 5 ədəd", price: "5.00 ₼" },
+          { name: "Toyuq langet", price: "5.00 ₼" }
+        ]
+      },
+      {
+        category: "Salatlar",
+        items: [
+          { name: "Pomidor & Xiyar (təzə)", price: "3.00 ₼" },
+          { name: "Çoban salatı", price: "3.50 ₼" },
+          { name: "Turşu (qarışıq)", price: "4.00 ₼" },
+          { name: "Zeytun", price: "2.00 ₼" },
+          { name: "Pendir (sadə)", price: "2.00 ₼" },
+          { name: "Pendir (motal)", price: "3.00 ₼" },
+          { name: "Göyərti", price: "1.50 ₼" },
+          { name: "Qatıq", price: "1.00 ₼" }
+        ]
+      },
+      {
+        category: "Sərin sular",
+        items: [
+          { name: "Badamlı (qazlı) 1L", price: "2.50 ₼" },
+          { name: "Badamlı (qazsız) 1L", price: "2.00 ₼" },
+          { name: "Badamlı şüşə (qazlı-qazsız)", price: "2.00 ₼" },
+          { name: "Fanta 1L", price: "3.00 ₼" },
+          { name: "Fanta 2L", price: "4.50 ₼" },
+          { name: "Sprite 1L", price: "3.00 ₼" },
+          { name: "Pepsi 1L", price: "3.00 ₼" },
+          { name: "Pepsi 2L", price: "4.50 ₼" }
+        ]
+      },
+      {
+        category: "Enerji içkiləri",
+        items: [
+          { name: "Redbull 250ml", price: "5.00 ₼" },
+          { name: "Bizon 250ml", price: "2.00 ₼" },
+          { name: "Hell 250ml", price: "2.00 ₼" },
+          { name: "Dinamit 250ml", price: "3.00 ₼" },
+          { name: "Plus power", price: "1.50 ₼" },
+          { name: "Full 250ml", price: "2.00 ₼" }
+        ]
+      }
+    ];
+
+    let currentCategory = "Hamısı";
+
+    // Sayt yüklənəndə render et
+    window.onload = () => {
+      renderCategories();
+      renderMenu();
+    };
+
+    // Kateqoriyaları Render et
+    function renderCategories() {
+      const nav = document.getElementById('categoriesNav');
+      let html = `<button class="cat-chip active" onclick="selectCategory('Hamısı', this)">Hamısı</button>`;
+      
+      menuData.forEach(cat => {
+        html += `<button class="cat-chip" onclick="selectCategory('${cat.category}', this)">${cat.category}</button>`;
+      });
+
+      nav.innerHTML = html;
+    }
+
+    // Kateqoriya seçimi
+    function selectCategory(catName, element) {
+      currentCategory = catName;
+      
+      document.querySelectorAll('.cat-chip').forEach(chip => chip.classList.remove('active'));
+      if(element) element.classList.add('active');
+
+      renderMenu();
+    }
+
+    // Menyunu Render et
+    function renderMenu(filterText = "") {
+      const container = document.getElementById('menuContainer');
+      let html = "";
+
+      menuData.forEach(section => {
+        if (currentCategory !== "Hamısı" && section.category !== currentCategory) return;
+
+        // Axtarış filtri
+        const filteredItems = section.items.filter(item => 
+          item.name.toLowerCase().includes(filterText.toLowerCase()) ||
+          (item.desc && item.desc.toLowerCase().includes(filterText.toLowerCase()))
+        );
+
+        if (filteredItems.length > 0) {
+          html += `<div class="section-title">${section.category}</div>`;
+          filteredItems.forEach(item => {
+            html += `
+              <div class="menu-card">
+                <div class="item-details">
+                  <div class="item-name">${item.name}</div>
+                  ${item.desc ? `<div class="item-desc">${item.desc}</div>` : ''}
+                </div>
+                <div class="price-tag">
+                  ${item.oldPrice ? `<span class="old-price">${item.oldPrice}</span>` : ''}
+                  <span class="current-price">${item.price}</span>
+                </div>
+              </div>
+            `;
+          });
+        }
+      });
+
+      if (html === "") {
+        html = `<div style="text-align:center; padding: 40px; color: var(--text-muted);">
+          <i class="fa-solid fa-utensils" style="font-size: 2rem; margin-bottom: 10px;"></i>
+          <p>Məhsul tapılmadı</p>
+        </div>`;
+      }
+
+      container.innerHTML = html;
+    }
+
+    // Axtarış funksiyası
+    function filterMenu() {
+      const text = document.getElementById('searchInput').value;
+      renderMenu(text);
+    }
+
+    // Modal idarəçiliyi
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
