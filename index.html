@@ -3,92 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Stil Çayıməkanı | Onlayn Menyu</title>
-  <!-- Google Fonts: Poppins & Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
+  <title>Stil Çayıməkanı - Rəsmi Menyu</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --primary: #FF5E00;
-      --primary-gradient: linear-gradient(135deg, #FF7B00 0%, #FF3D00 100%);
-      --bg-dark: #0F1115;
-      --card-bg: #1A1D24;
-      --text-white: #FFFFFF;
-      --text-gray: #A0A5B5;
-      --accent-gold: #FFB800;
+      --primary: #FF7A00;       /* Stil Narıncı */
+      --primary-dark: #E06B00;
+      --secondary: #10B981;     /* Təbii Yaşıl Yarpaq */
+      --bg-color: #F8FAFC;
+      --surface: #FFFFFF;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(255,122,0,0.12);
       --radius-lg: 20px;
-      --radius-md: 12px;
+      --radius-md: 14px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-white);
+      background-color: var(--bg-color);
+      color: var(--text-dark);
       display: flex;
       justify-content: center;
       min-height: 100vh;
     }
 
-    /* Mobil Konteyner */
-    .app-container {
+    .app-shell {
       width: 100%;
-      max-width: 480px;
-      background-color: #14161D;
+      max-width: 500px;
+      background-color: var(--bg-color);
       min-height: 100vh;
       padding-bottom: 90px;
       position: relative;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 50px rgba(0,0,0,0.08);
     }
 
-    /* Top Header */
-    .header {
+    /* Header */
+    .brand-header {
+      background: var(--surface);
       padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(20, 22, 29, 0.95);
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .brand-info {
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid var(--primary);
-      object-fit: cover;
-      background-color: #222;
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
     }
 
-    .brand-text h1 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-white);
-      line-height: 1.2;
+    .brand-title h1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
     }
 
-    .brand-text p {
-      font-size: 12px;
-      color: #2ED573;
-      font-weight: 500;
+    .brand-title span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--secondary);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -96,234 +94,206 @@
 
     .header-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .icon-btn {
-      width: 40px;
-      height: 40px;
+    .action-icon {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 122, 0, 0.08);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-white);
       text-decoration: none;
-      font-size: 16px;
-      transition: all 0.2s ease;
+      font-size: 15px;
+      transition: all 0.2s;
     }
 
-    .icon-btn.whatsapp {
-      background: #25D366;
-      color: #fff;
+    .action-icon.call {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--secondary);
     }
 
-    /* Instagram Stories Bar */
-    .stories-container {
-      padding: 15px 0 10px 15px;
-      overflow-x: auto;
-      display: flex;
-      gap: 14px;
-      scrollbar-width: none;
-    }
-
-    .stories-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .story-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .story-ring {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .story-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--bg-dark);
-      background: #222;
-    }
-
-    .story-title {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-white);
-      max-width: 70px;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Hero Promo Banner (Burger King Vibe) */
-    .promo-section {
-      padding: 10px 20px 20px;
-    }
-
-    .promo-card {
-      background: var(--primary-gradient);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(255, 94, 0, 0.35);
-    }
-
-    .promo-badge {
-      background: rgba(0, 0, 0, 0.3);
-      color: #FFF;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .promo-card h2 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-
-    .promo-card p {
-      font-size: 13px;
-      opacity: 0.9;
-      margin-bottom: 14px;
-    }
-
-    .promo-btn {
-      background: #FFFFFF;
-      color: #FF3D00;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Search Bar */
-    .search-section {
-      padding: 0 20px 20px;
-    }
-
-    .search-box {
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
+    /* Top Horizontal Category Tabs */
+    .category-tabs {
+      background: var(--surface);
       padding: 12px 16px;
       display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 78px;
+      z-index: 90;
     }
 
-    .search-box input {
-      background: transparent;
+    .category-tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: #F1F5F9;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
       border: none;
-      outline: none;
-      color: #fff;
-      font-size: 14px;
-      width: 100%;
-    }
-
-    .search-box i {
-      color: var(--text-gray);
-    }
-
-    /* Section Headers */
-    .section-title {
-      font-size: 18px;
-      font-weight: 700;
-      padding: 0 20px 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      margin: 16px 20px;
+      background: linear-gradient(135deg, #FF7A00 0%, #FF9E44 100%);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-banner::after {
+      content: '🍃';
+      position: absolute;
+      right: -10px;
+      bottom: -10px;
+      font-size: 90px;
+      opacity: 0.15;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 8px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-banner h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .hero-banner p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    /* Search Box */
+    .search-wrapper {
+      padding: 0 20px 16px;
+    }
+
+    .search-input-box {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-input-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+      color: var(--text-dark);
+      background: transparent;
+    }
+
+    /* Menu Sections */
+    .menu-section {
+      padding: 0 20px 24px;
+    }
+
+    .section-header {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      background: var(--secondary);
+      border-radius: 4px;
     }
 
     /* Product Grid */
     .products-grid {
-      padding: 0 20px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 14px;
-      margin-bottom: 25px;
     }
 
     .product-card {
-      background: var(--card-bg);
+      background: var(--surface);
       border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 12px;
       display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease;
-    }
-
-    .product-card:active {
-      transform: scale(0.97);
-    }
-
-    .product-img-wrapper {
+      gap: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
       position: relative;
-      width: 100%;
-      height: 120px;
-      background: #22252F;
     }
 
     .product-img {
-      width: 100%;
-      height: 100%;
+      width: 95px;
+      height: 95px;
+      border-radius: 10px;
       object-fit: cover;
+      background: #F1F5F9;
+      flex-shrink: 0;
     }
 
-    .product-details {
-      padding: 12px;
+    .product-info {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
       justify-content: space-between;
+      flex: 1;
     }
 
-    .product-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-white);
+    .product-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
       margin-bottom: 4px;
     }
 
     .product-desc {
       font-size: 11px;
-      color: var(--text-gray);
-      margin-bottom: 10px;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 8px;
     }
 
-    .product-bottom {
+    .product-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -331,33 +301,71 @@
 
     .product-price {
       font-size: 15px;
-      font-weight: 700;
-      color: var(--accent-gold);
+      font-weight: 800;
+      color: var(--primary);
     }
 
-    .add-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
+    /* Interactive Like Button */
+    .like-btn {
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      padding: 5px 10px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
       cursor: pointer;
-      font-size: 14px;
+      transition: all 0.2s;
     }
 
-    /* Bottom Navigation Bar */
+    .like-btn.liked {
+      background: #FEF2F2;
+      border-color: #FCA5A5;
+      color: #EF4444;
+    }
+
+    .like-btn i {
+      font-size: 13px;
+    }
+
+    /* Floating Call Waiter Button */
+    .waiter-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: var(--secondary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      cursor: pointer;
+      z-index: 150;
+      border: none;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+
+    /* Bottom Nav Bar */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       width: 100%;
-      max-width: 480px;
-      background: rgba(20, 22, 29, 0.98);
-      backdrop-filter: blur(15px);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      max-width: 500px;
+      background: var(--surface);
+      border-top: 1px solid var(--border-color);
       display: flex;
       justify-content: space-around;
       padding: 10px 0;
@@ -368,11 +376,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      color: var(--text-gray);
+      gap: 3px;
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -384,7 +392,7 @@
       font-size: 18px;
     }
 
-    /* Information Modal / Drawer */
+    /* Modal / Drawer */
     .modal {
       display: none;
       position: fixed;
@@ -392,7 +400,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
       z-index: 300;
       justify-content: center;
       align-items: flex-end;
@@ -400,8 +409,8 @@
 
     .modal-content {
       width: 100%;
-      max-width: 480px;
-      background: var(--card-bg);
+      max-width: 500px;
+      background: var(--surface);
       border-top-left-radius: 24px;
       border-top-right-radius: 24px;
       padding: 24px;
@@ -420,314 +429,332 @@
       margin-bottom: 16px;
     }
 
-    .modal-header h3 {
-      font-size: 18px;
-      font-weight: 700;
-    }
+    .modal-header h3 { font-size: 18px; font-weight: 800; }
 
-    .close-btn {
+    .btn-close {
       font-size: 20px;
-      color: var(--text-gray);
+      color: var(--text-muted);
       cursor: pointer;
     }
 
-    .info-body p {
-      font-size: 13px;
-      color: var(--text-gray);
-      line-height: 1.6;
+    .info-box {
       margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .maps-btn {
+    .btn-maps {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background: #4285F4;
+      gap: 8px;
+      width: 100%;
+      background: #3B82F6;
       color: #fff;
-      text-decoration: none;
-      padding: 14px;
+      padding: 12px;
       border-radius: var(--radius-md);
-      font-weight: 600;
+      text-decoration: none;
+      font-weight: 700;
       font-size: 14px;
-      margin-top: 10px;
-    }
-
-    /* Story Fullscreen Viewer */
-    .story-viewer {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      z-index: 400;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .story-viewer img {
-      width: 100%;
-      max-width: 480px;
-      height: 80vh;
-      object-fit: cover;
-    }
-
-    .story-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: #fff;
-      font-size: 28px;
-      cursor: pointer;
-      z-index: 401;
     }
   </style>
 </head>
 <body>
 
-  <div class="app-container">
+  <div class="app-shell">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="brand-info">
-        <!-- Loqo şəkli (images/logo.png əlavə edə bilərsən) -->
-        <img src="images/logo.png" onerror="this.src='https://via.placeholder.com/100/FF5E00/FFFFFF?text=STİL'" class="brand-logo" alt="Stil Loqo">
-        <div class="brand-text">
+    <!-- Brand Header -->
+    <header class="brand-header">
+      <div class="logo-container">
+        <!-- SVG / Loqo Placeholder (Logo ilə eyni narıncı/yaşıl ikon) -->
+        <svg class="logo-img" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="45" fill="#FFF7ED"/>
+          <path d="M30 65C35 40 65 30 75 35C65 60 35 70 30 65Z" fill="#10B981"/>
+          <text x="22" y="58" font-size="28" font-weight="900" fill="#FF7A00" font-family="sans-serif">Stil</text>
+        </svg>
+        <div class="brand-title">
           <h1>Stil Çayıməkanı</h1>
-          <p><i class="fa-solid fa-leaf"></i> Halallığın Ünvanı</p>
+          <span><i class="fa-solid fa-circle-check"></i> Halallığın Ünvanı</span>
         </div>
       </div>
       <div class="header-actions">
-        <a href="tel:+994500000000" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
-        <a href="https://wa.me/994500000000" class="icon-btn whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:+994500000000" class="action-icon call"><i class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/994500000000" class="action-icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </header>
 
-    <!-- Instagram Stories Bar -->
-    <div class="stories-container">
-      <div class="story-item" onclick="openStory('images/story-qelyan.png', 'Gecə Qəlyan Kampaniyası')">
-        <div class="story-ring">
-          <img src="images/story-qelyan.png" onerror="this.src='https://via.placeholder.com/100/FF3D00/FFFFFF?text=Qəlyan'" class="story-img">
-        </div>
-        <span class="story-title">Kampaniya</span>
-      </div>
+    <!-- Category Filter Tabs -->
+    <nav class="category-tabs">
+      <button class="tab-btn active" onclick="scrollToCat('cay-desti')">🍵 Çay & Dəstlər</button>
+      <button class="tab-btn" onclick="scrollToCat('mezeler')">🧆 Məzələr</button>
+      <button class="tab-btn" onclick="scrollToCat('qelyanlar')">💨 Qəlyanlar</button>
+      <button class="tab-btn" onclick="scrollToCat('fast-food')">🍔 Fast Food</button>
+      <button class="tab-btn" onclick="scrollToCat('murebbeler')">🍓 Mürəbbələr</button>
+      <button class="tab-btn" onclick="scrollToCat('enerji')">⚡ Enerji İçkiləri</button>
+    </nav>
 
-      <div class="story-item" onclick="scrollToCategory('cay-mezeler')">
-        <div class="story-ring">
-          <img src="images/story-cay.png" onerror="this.src='https://via.placeholder.com/100/FFB800/FFFFFF?text=Çay'" class="story-img">
-        </div>
-        <span class="story-title">Çay & Məzə</span>
-      </div>
+    <!-- Dynamic Hero Offer -->
+    <div class="hero-banner">
+      <span class="hero-badge"><i class="fa-solid fa-fire"></i> XÜSUSİ GECƏ KAMPANİYASI</span>
+      <h2>Gecə Qəlyan Təklifi</h2>
+      <p>Saat 00:00 - 06:00 arası xüsusi menyumuzla xidmətinizdəyik!</p>
+    </div>
 
-      <div class="story-item" onclick="scrollToCategory('enerji-ickileri')">
-        <div class="story-ring">
-          <img src="images/story-enerji.png" onerror="this.src='https://via.placeholder.com/100/2ED573/FFFFFF?text=Enerji'" class="story-img">
-        </div>
-        <span class="story-title">Enerji</span>
-      </div>
-
-      <div class="story-item" onclick="scrollToCategory('fast-food')">
-        <div class="story-ring">
-          <img src="images/story-burger.png" onerror="this.src='https://via.placeholder.com/100/FF5E00/FFFFFF?text=FastFood'" class="story-img">
-        </div>
-        <span class="story-title">Burger & Fast</span>
-      </div>
-
-      <div class="story-item" onclick="scrollToCategory('murebbeler')">
-        <div class="story-ring">
-          <img src="images/story-murebbe.png" onerror="this.src='https://via.placeholder.com/100/DC2743/FFFFFF?text=Mürəbbə'" class="story-img">
-        </div>
-        <span class="story-title">Mürəbbələr</span>
+    <!-- Search Box -->
+    <div class="search-wrapper">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+        <input type="text" id="searchInput" onkeyup="filterItems()" placeholder="Menyuda axtarış yapın...">
       </div>
     </div>
 
-    <!-- Hero Promo Banner (Burger King Stilində) -->
-    <div class="promo-section">
-      <div class="promo-card">
-        <span class="promo-badge"><i class="fa-solid fa-fire"></i> XÜSUSİ TƏKLİF</span>
-        <h2>Gecə Qəlyan Kampaniyası</h2>
-        <p>Saat 00:00 - 06:00 arası xüsusi menyularımıza xüsusi endirimlər!</p>
-        <button class="promo-btn" onclick="openInfoModal()">Sifariş & Ətraflı</button>
-      </div>
-    </div>
-
-    <!-- Axtarış Qutusu -->
-    <div class="search-section">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" onkeyup="filterMenu()" placeholder="Menyuda axtarış edin (məs: Çay, Redbull...)">
-      </div>
-    </div>
-
-    <!-- Kateqoriya 1: Çay və Məzələr -->
-    <div id="cay-mezeler">
-      <div class="section-title">
-        <span>🍵 Çay və Məzələr</span>
-      </div>
+    <!-- 1. ÇAY VƏ DƏSTƏR -->
+    <section class="menu-section" id="cay-desti">
+      <div class="section-header">Çay Dəstləri və Xüsusi Çaylar</div>
       <div class="products-grid">
 
-        <!-- Məhsul 1 -->
-        <div class="product-card">
-          <div class="product-img-wrapper">
-            <img src="images/cay-1.png" onerror="this.src='https://via.placeholder.com/300x200/22252F/FFFFFF?text=Bir+Çaynik+Çay'" class="product-img" alt="Çay">
-          </div>
-          <div class="product-details">
-            <div class="product-name">Bir Çaynik Çay</div>
-            <div class="product-desc">Xüsusi dəmləmə Azərbaycan çayı</div>
-            <div class="product-bottom">
-              <span class="product-price">5.00 ₼</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+        <div class="product-card" data-title="xususi samovar cay desti">
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300" class="product-img" alt="Çay">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Xüsusi Samovar Çay Dəsti</div>
+              <div class="product-desc">Təbii samovar çayı, milli mürəbbə, çərəz, şokolad və limon.</div>
             </div>
-          </div>
-        </div>
-
-        <!-- Məhsul 2 -->
-        <div class="product-card">
-          <div class="product-img-wrapper">
-            <img src="images/cay-desti.png" onerror="this.src='https://via.placeholder.com/300x200/22252F/FFFFFF?text=Stil+Çay+Dəsti'" class="product-img" alt="Çay Dəsti">
-          </div>
-          <div class="product-details">
-            <div class="product-name">Stil Çay Dəsti</div>
-            <div class="product-desc">Çay, mürəbbə, çərəz və limon daxildir</div>
-            <div class="product-bottom">
+            <div class="product-footer">
               <span class="product-price">15.00 ₼</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="like-btn" onclick="toggleLike(this, 'item1')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">142</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-title="bir caynik pürrengi cay">
+          <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=300" class="product-img" alt="Çaynik">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Klassik Dəmgah Çayı</div>
+              <div class="product-desc">Ətirli kəklikotu və ya mixək əlavəli təbii çaynik.</div>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">5.00 ₼</span>
+              <button class="like-btn" onclick="toggleLike(this, 'item2')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">89</span>
+              </button>
             </div>
           </div>
         </div>
 
       </div>
-    </div>
+    </section>
 
-    <!-- Kateqoriya 2: Enerji İçkiləri -->
-    <div id="enerji-ickileri">
-      <div class="section-title">
-        <span>⚡ Enerji İçkiləri</span>
-      </div>
+    <!-- 2. MƏZƏLƏR -->
+    <section class="menu-section" id="mezeler">
+      <div class="section-header">Xüsusi Məzələr</div>
       <div class="products-grid">
 
-        <!-- Məhsul 1 -->
-        <div class="product-card">
-          <div class="product-img-wrapper">
-            <img src="images/redbull.png" onerror="this.src='https://via.placeholder.com/300x200/22252F/FFFFFF?text=Red+Bull'" class="product-img" alt="Redbull">
-          </div>
-          <div class="product-details">
-            <div class="product-name">Red Bull 250ml</div>
-            <div class="product-desc">Orijinal enerji içkisi</div>
-            <div class="product-bottom">
-              <span class="product-price">5.00 ₼</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+        <div class="product-card" data-title="qoz findiq cerez seti">
+          <img src="https://images.unsplash.com/photo-1536591375315-1b836814d689?w=300" class="product-img" alt="Məzə">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Qarışıq Çərəz Seti</div>
+              <div class="product-desc">Badam, fındıq, qoz, püstə və xüsusi qovrulmuş tumlar.</div>
             </div>
-          </div>
-        </div>
-
-        <!-- Məhsul 2 -->
-        <div class="product-card">
-          <div class="product-img-wrapper">
-            <img src="images/monster.png" onerror="this.src='https://via.placeholder.com/300x200/22252F/FFFFFF?text=Monster'" class="product-img" alt="Monster">
-          </div>
-          <div class="product-details">
-            <div class="product-name">Monster Energy</div>
-            <div class="product-desc">Zəngin aromalı enerji içkisi</div>
-            <div class="product-bottom">
-              <span class="product-price">6.00 ₼</span>
-              <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+            <div class="product-footer">
+              <span class="product-price">8.00 ₼</span>
+              <button class="like-btn" onclick="toggleLike(this, 'item3')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">64</span>
+              </button>
             </div>
           </div>
         </div>
 
       </div>
-    </div>
+    </section>
 
-    <!-- Lower Navigation Bar -->
+    <!-- 3. FAST FOOD -->
+    <section class="menu-section" id="fast-food">
+      <div class="section-header">Fast Food & Qəlyanaltılar</div>
+      <div class="products-grid">
+
+        <div class="product-card" data-title="stil burger fri">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300" class="product-img" alt="Burger">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Stil Özel Burger + Fri</div>
+              <div class="product-desc">100% dana əti, xüsusi sous, kartof fri ilə birlikdə.</div>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">9.50 ₼</span>
+              <button class="like-btn" onclick="toggleLike(this, 'item4')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">210</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-title="klub sendvic kartof fri">
+          <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300" class="product-img" alt="Club Sandwich">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Klub Sendviç</div>
+              <div class="product-desc">Toyuq filesi, vetchina, yumurta, pomidor, xiyar və fri.</div>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">8.00 ₼</span>
+              <button class="like-btn" onclick="toggleLike(this, 'item5')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">115</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. ENERJİ İÇKİLƏRİ -->
+    <section class="menu-section" id="enerji">
+      <div class="section-header">Enerji İçkiləri & Sərinlik</div>
+      <div class="products-grid">
+
+        <div class="product-card" data-title="redbull red bull">
+          <img src="https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=300" class="product-img" alt="Red Bull">
+          <div class="product-info">
+            <div>
+              <div class="product-title">Red Bull 250ml</div>
+              <div class="product-desc">Buz kimi sərinləşdirici enerji içkisi.</div>
+            </div>
+            <div class="product-footer">
+              <span class="product-price">5.00 ₼</span>
+              <button class="like-btn" onclick="toggleLike(this, 'item6')">
+                <i class="fa-solid fa-heart"></i> <span class="like-count">98</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Floating Waiter Button -->
+    <button class="waiter-btn" onclick="openInfoModal('waiter')">
+      <i class="fa-solid fa-bell"></i> Ofisiant Çağır
+    </button>
+
+    <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-      <div class="nav-item active" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <i class="fa-solid fa-utensils"></i>
+      <div class="nav-item active" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <i class="fa-solid fa-book-open"></i>
         <span>Menyu</span>
       </div>
-      <div class="nav-item" onclick="alert('Rezervasiya üçün bizimlə əlaqə saxlayın!')">
-        <i class="fa-solid fa-calendar-check"></i>
-        <span>Rezerv</span>
+      <div class="nav-item" onclick="openInfoModal('about')">
+        <i class="fa-solid fa-store"></i>
+        <span>Bizim Məkan</span>
       </div>
-      <div class="nav-item" onclick="openInfoModal()">
-        <i class="fa-solid fa-circle-info"></i>
-        <span>Məlumat</span>
+      <div class="nav-item" onclick="openInfoModal('contact')">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Ünvan</span>
       </div>
     </nav>
 
   </div>
 
-  <!-- Haqqımızda & Məkan Modal Pəncərəsi -->
-  <div class="modal" id="infoModal">
+  <!-- Modal -->
+  <div class="modal" id="appModal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Stil Çayıməkanı Haqqında</h3>
-        <i class="fa-solid fa-xmark close-btn" onclick="closeInfoModal()"></i>
+        <h3 id="modalTitle">Stil Çayıməkanı</h3>
+        <i class="fa-solid fa-xmark btn-close" onclick="closeModal()"></i>
       </div>
-      <div class="info-body">
-        <p><strong>Stil Çayıməkanı</strong> olaraq sizə yalnız təbii və keyfiyyətli çaylar deyil, eyni zamanda dostlarınızla unudulmaz dəqiqələr keçirə biləcəyiniz sakit və rahat atmosfer təqdim edirik. Halal konsepsiyamız, zəngin menyumuz və mehriban heyətimizlə xidmətinizdəyik.</p>
-        <p><i class="fa-solid fa-clock"></i> <strong>İş saatları:</strong> 24/7 (Hər gün)</p>
-        
-        <!-- Xəritə Linki -->
-        <a href="https://maps.google.com" target="_blank" class="maps-btn">
-          <i class="fa-solid fa-location-dot"></i> Xəritədə Məkanımızı Aç
-        </a>
+      <div class="info-box" id="modalBody">
+        <!-- Content inserted dynamically -->
       </div>
     </div>
   </div>
 
-  <!-- Story Fullscreen Pop-Up -->
-  <div class="story-viewer" id="storyViewer">
-    <i class="fa-solid fa-xmark story-close" onclick="closeStory()"></i>
-    <img id="storyViewerImg" src="" alt="Story">
-  </div>
-
   <script>
-    // Məlumat modalını açmaq/bağlamaq
-    function openInfoModal() {
-      document.getElementById('infoModal').style.display = 'flex';
-    }
-
-    function closeInfoModal() {
-      document.getElementById('infoModal').style.display = 'none';
-    }
-
-    // Story Baxışı
-    function openStory(imgUrl, title) {
-      const viewer = document.getElementById('storyViewer');
-      const img = document.getElementById('storyViewerImg');
-      img.src = imgUrl;
-      viewer.style.display = 'flex';
-    }
-
-    function closeStory() {
-      document.getElementById('storyViewer').style.display = 'none';
-    }
-
-    // Kateqoriyaya rəvan sürüşdürmə (Scroll)
-    function scrollToCategory(id) {
+    // Scroll to Category
+    function scrollToCat(id) {
       const el = document.getElementById(id);
       if(el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const yOffset = -140;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
+      
+      // Update Tab Styles
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // Interactive Like Counter System
+    function toggleLike(btn, itemId) {
+      let countSpan = btn.querySelector('.like-count');
+      let currentCount = parseInt(countSpan.innerText);
+      let isLiked = btn.classList.contains('liked');
+
+      if (!isLiked) {
+        btn.classList.add('liked');
+        countSpan.innerText = currentCount + 1;
+        localStorage.setItem('like_' + itemId, 'true');
+      } else {
+        btn.classList.remove('liked');
+        countSpan.innerText = currentCount - 1;
+        localStorage.removeItem('like_' + itemId);
       }
     }
 
-    // Axtarış Funksiyası
-    function filterMenu() {
-      let input = document.getElementById('searchInput').value.toLowerCase();
-      let cards = document.getElementsByClassName('product-card');
+    // Filter Items Search
+    function filterItems() {
+      let query = document.getElementById('searchInput').value.toLowerCase();
+      let cards = document.querySelectorAll('.product-card');
 
-      for (let i = 0; i < cards.length; i++) {
-        let name = cards[i].querySelector('.product-name').innerText.toLowerCase();
-        if (name.includes(input)) {
-          cards[i].style.display = "";
+      cards.forEach(card => {
+        let title = card.getAttribute('data-title');
+        if (title.includes(query)) {
+          card.style.display = 'flex';
         } else {
-          cards[i].style.display = "none";
+          card.style.display = 'none';
         }
+      });
+    }
+
+    // Open Drawer Modals
+    function openInfoModal(type) {
+      const modal = document.getElementById('appModal');
+      const title = document.getElementById('modalTitle');
+      const body = document.getElementById('modalBody');
+
+      if(type === 'waiter') {
+        title.innerText = "Ofisiant / Sifariş";
+        body.innerHTML = `
+          <p>Masanıza ofisiant yaxınlaşması və ya sürətli sifariş üçün aşağıdakı düymə ilə masanızı bildirin:</p>
+          <a href="https://wa.me/994500000000?text=Salam,%20masamıza%20ofisiant%20yaxınlaşsın" class="btn-maps" style="background:#25D366; margin-top:12px;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp ilə Masa Bildir
+          </a>
+        `;
+      } else if(type === 'about') {
+        title.innerText = "Bizim Məkan Haqqında";
+        body.innerHTML = `
+          <p><strong>Stil Çayıməkanı</strong> - Yüksək keyfiyyətli samovar çayı, xüsusi qəlyanlar, dadlı fast-food və canlı musiqi atmosferi ilə xidmətinizdədir.</p>
+          <p style="margin-top:8px;">✅ Halal konsept<br>🕒 24/7 Açıqdır<br>🎵 Canlı Musiqi / Mavi Zal Comfort</p>
+        `;
+      } else {
+        title.innerText = "Məkanımız və Ünvan";
+        body.innerHTML = `
+          <p>Sizləri Stil Çayıməkanında görməkdən şad olarıq!</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-maps" style="margin-top:12px;">
+            <i class="fa-solid fa-map-location-dot"></i> Google Maps-də Aç
+          </a>
+        `;
       }
+
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('appModal').style.display = 'none';
     }
   </script>
 </body>
